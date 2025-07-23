@@ -1,0 +1,135 @@
+[
+  {
+    "company": "Nepse Alpha Pvt. Ltd.",
+    "position": "Full Stack Developer / React/ React Native/ Vue",
+    "duration": "September 2019 - Present",
+    "location": "Lazimpat, KTM",
+    "responsibilities": [
+      "Created Entire Backend Logic and Frontend Ui",
+      "Developed web applications that provide news and various tools regarding Nepal Stock Market",
+      "Developed database structure as per requirements using PostgreSQL database",
+      "Integrated and modified Trading view Chart for Web Portals",
+      "Various Machine Learning Algorithms for Financial and Stock Price Forecasting",
+      "Database query optimization",
+      "Worked on web scrapings",
+      "Learned and developed a mobile app using React Native"
+    ],
+    "technologies": [
+      "Vue.js",
+      "Laravel API",
+      "Inertia.js",
+      "PostgreSQL",
+      "React/React Native",
+      "Python",
+      "Trading View",
+      "PineJs",
+      "Material UI",
+      "Element UI",
+      "Vuetify",
+      "ML"
+    ],
+    "images": [
+      "/images/works/np4.png",
+      "/images/works/np3.png",
+      "/images/works/np2.png",
+      "/images/works/np1.png"
+    ],
+    "link": "https://nepsealpha.com/",
+    "companyLogo": "/images/logos/nepsealpha.webp"
+  },
+  {
+    "company": "Global English Campus (GEC)",
+    "position": "Laravel/Vue JS/Django/React Native Developer",
+    "duration": "Dec 2021",
+    "location": "Remote",
+    "responsibilities": [
+      "Responsible for UI & WEB Development using Laravel & Vue CLI",
+      "Engineered AI-driven solutions by integrating OpenRouter and OpenAI APIs into web applications",
+      "Integrated AI-driven Images Generation API and used in the context of system for various purposes",
+      "Designed and developed workspace management system",
+      "Developed and implemented a comprehensive time tracking software solution",
+      "Integrated advanced reporting features for productivity analysis and project management",
+      "Created user-friendly interfaces for time entry and management",
+      "Follow Agile Development and used ClickUp",
+      "Implemented role-based access control for different user permission levels",
+      "Created and deployed iOS and Android app using React Native",
+      "Implemented cross-platform functionality with native device features",
+      "Optimized app performance for both iOS and Android platforms",
+      "Managed app deployment process through respective app stores"
+    ],
+    "technologies": [
+      "Vue",
+      "Vuex",
+      "Vuexy",
+      "Bootstrap Vue",
+      "Apollo GraphQL",
+      "Python",
+      "Django",
+      "Laravel",
+      "React",
+      "React Native",
+      "Open AI",
+      "Open Router",
+      "Anthropic"
+    ],
+    "images": [
+      "/images/works/ge1.png",
+      "/images/works/ge2.png",
+      "/images/works/ge3.png",
+      "/images/works/wz1.jpg",
+      "/images/works/wz2.jpg"
+    ],
+    "link": "https://globalenglishcampus.com/",
+    "companyLogo": "/images/logos/gec.png"
+  },
+  {
+    "company": "Gamenic Nalamiz Tech Pvt. Ltd",
+    "position": "Laravel & Vue/React Js Developer",
+    "duration": "April 2020 - Dec 2021",
+    "location": "Remote",
+    "responsibilities": [
+      "Worked with an international team from a remote location",
+      "Utilized all GitHub core features by following agile methodology",
+      "Developed and maintained a real-time chat application system",
+      "Involved in analyzing logs in AWS Servers",
+      "Worked with docker environment",
+      "Perform Unit Testing"
+    ],
+    "technologies": ["Vue", "Vuex", "Element UI", "Laravel Voyager", "Docker"],
+    "images": ["/images/works/gm1.jpg", "/images/works/gm2.jpg"],
+    "link": "https://nalamiz.gamenic.io/",
+    "companyLogo": "/images/logos/gm.jpeg"
+  },
+  {
+    "company": "Mero Network Pvt. Ltd.",
+    "position": "Laravel & React Developer",
+    "duration": "April 2018 - April 2020",
+    "location": "Lazimpat, KTM",
+    "responsibilities": [
+      "Involved in working on CRM & ERP software for Travel Management, Restaurant Management, Inventory Management, and Project Management",
+      "Implemented SOAP API (Provided by SABRE) for Online Flight Booking System",
+      "Designing and developing Rest APIs for data communication, especially for mobile applications",
+      "Involved in upgrading Laravel framework versions",
+      "Creating database structure as per requirements using MySQL database",
+      "Implemented various modules like Live Chat system, Document Management system, Project Management System, and many more"
+    ],
+    "technologies": [
+      "Laravel",
+      "React",
+      "jQuery",
+      "Vue.js",
+      "Axios",
+      "AJAX",
+      "MySQL",
+      "SOAP API"
+    ],
+    "images": [
+      "/images/works/mn2.jpg",
+      "/images/works/mn1.jpg",
+      "/images/works/mnf.jpg",
+      "/images/works/mn3.jpg"
+    ],
+    "link": "https://meronetwork.com.np/portal/home",
+    "companyLogo": "/images/logos/mn.jpeg"
+  }
+]

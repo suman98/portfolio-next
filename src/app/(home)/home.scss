@@ -1,0 +1,264 @@
+// Theme variables
+:root {
+  --primary-color: #1890ff;
+  --primary-color-dark: #096dd9;
+  --success-color: #52c41a;
+  --purple-color: #722ed1;
+  --bg-color: #ffffff;
+  --card-bg-color: #ffffff;
+  --card-bg-gradient: linear-gradient(to bottom, #ffffff, #f9fafb);
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --border-color: #dcdcdc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-strong: rgba(0, 0, 0, 0.15);
+  --timeline-hover-bg: rgba(24, 144, 255, 0.05);
+}
+
+[data-theme='dark'] {
+  --primary-color: #1890ff;
+  --primary-color-dark: #096dd9;
+  --success-color: #52c41a;
+  --purple-color: #722ed1;
+  --bg-color: #1f1f1f;
+  --card-bg-color: #2a2a2a;
+  --card-bg-gradient: linear-gradient(to bottom, #2a2a2a, #252525);
+  --text-color: #f0f0f0;
+  --text-secondary: #d0d0d0;
+  --text-light: #a0a0a0;
+  --border-color: #3a3a3a;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-strong: rgba(0, 0, 0, 0.4);
+  --timeline-hover-bg: rgba(24, 144, 255, 0.1);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ant-divider-inner-text {
+    z-index: 1;
+}
+
+.portfolio-container {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.section-container {
+    position: relative;
+    transition: all 0.5s ease;
+    padding: 0 20px;
+}
+
+.section-container:first-child {
+    margin-top: 30px;
+}
+
+// Enhanced card styling
+.ant-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--card-bg-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.ant-card-head {
+    background-color: var(--card-bg-color);
+    border-bottom-color: var(--border-color);
+}
+
+.ant-card-body {
+    background-color: var(--card-bg-color);
+}
+
+.hover-lift {
+    background: var(--card-bg-gradient) !important;
+}
+
+// Enhanced timeline styling
+.ant-timeline-item-content {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--text-color);
+}
+
+.ant-timeline-item:hover .ant-timeline-item-content {
+    transform: translateX(5px);
+    background-color: var(--timeline-hover-bg);
+}
+
+// Enhanced tag styling
+.ant-tag {
+    transition: all 0.3s ease;
+    margin: 4px;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.ant-tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+// Enhanced button styling
+.ant-btn {
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+.ant-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+// Add a progress bar at the top of the page
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1890ff, #096dd9);
+    z-index: 1001;
+    transition: width 0.1s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+// Section header styling
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    display: inline-block;
+    position: relative;
+}
+
+.section-header h2:after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #1890ff, #096dd9);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+// Contact form styling
+.contact-info-card {
+    background-color: #f9f9f9;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+// Menu item hover effect
+.ant-menu-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.ant-menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #1890ff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.ant-menu-item:hover::after {
+    width: 80%;
+}
+
+// Add responsive adjustments
+@media (max-width: 768px) {
+    .section-container {
+        margin: 40px 0;
+    }
+    
+    .ant-menu-item {
+        padding: 0 10px !important;
+    }
+}
+
+.full-width-container {
+    margin-top: 70px;
+}
+
+// Update typography for theme support
+.ant-typography {
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+}
+
+.ant-typography-secondary {
+    color: var(--text-secondary);
+}
+
+// Update menu styling for theme
+.ant-menu {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-bottom-color: var(--border-color);
+}
+
+.ant-menu-item {
+    color: var(--text-color) !important;
+}
+
+.ant-menu-item-selected {
+    color: var(--primary-color) !important;
+}
+
+.ant-menu-item:hover {
+    color: var(--primary-color) !important;
+}
+
+// Update divider styling for theme
+.ant-divider {
+    color: var(--text-color);
+    border-top-color: var(--border-color);
+}
+
+.ant-divider-inner-text {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+// // Theme transition
+// * {
+//     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+// }
+
+.ant-timeline-item-head {
+    background-color: transparent !important;
+}

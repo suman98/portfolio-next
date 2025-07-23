@@ -1,0 +1,71 @@
+[
+  {
+    "name": "Programming Languages",
+    "color": "#1890ff",
+    "items": ["PHP", "Javascript", "Python", "C/C++"]
+  },
+  {
+    "name": "Backend Frameworks",
+    "color": "#722ed1",
+    "items": ["Laravel", "Codeigniter", "Django", "Node.js"]
+  },
+  {
+    "name": "Javascript Frameworks and Libraries",
+    "color": "#52c41a",
+    "items": [
+      "Vue.js",
+      "React.js",
+      "React Native",
+      "jQuery",
+      "IONIC",
+      "Apollo GraphQL"
+    ]
+  },
+  {
+    "name": "Frontend Tools and UI Libraries",
+    "color": "#fa8c16",
+    "items": [
+      "HTML",
+      "CSS",
+      "SCSS",
+      "JS",
+      "Bootstrap",
+      "Bootstrap Vue",
+      "Element UI",
+      "Vuetify.js"
+    ]
+  },
+  {
+    "name": "Web Services",
+    "color": "#eb2f96",
+    "items": ["SOAP", "JSON"]
+  },
+  {
+    "name": "Databases",
+    "color": "#13c2c2",
+    "items": ["MySQL", "PostgreSQL"]
+  },
+  {
+    "name": "Tools",
+    "color": "#f5222d",
+    "items": [
+      "VS Code",
+      "Ai Tools",
+      "Postman",
+      "excalidraw",
+      "Git",
+      "GitHub",
+      "Sublime Text 3",
+      "Microsoft Office Tools"
+    ]
+  },
+  {
+    "name": "Software Testing",
+    "color": "#b37feb",
+    "items": [
+      "PHPUnit",
+      "Postman Tests",
+      "Cypress"
+    ]
+  }
+]

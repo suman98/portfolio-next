@@ -1,103 +1,166 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React, { useRef, useEffect, useState, useContext } from "react";
+import NavMenu from "./components/NavBar";
+import AboutMe from "./components/About";
+import ProfessionalSummary from "./components/ProfessionalSummary";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
+import MySkill from "./components/MySkills";
+import ContactMe from "./components/ContactMe";
+import SideProjects from "./components/SideProjects";
+import CustomParticle from "@/@core/components/ParticleBackground";
+import { Fade } from "react-awesome-reveal";
+import ScrollProgressBar from "./components/ScrollProgressBar";
+import { ThemeProvider, ThemeContext } from "@/context/ThemeContext";
+import "./home.scss";
+
+// Memoized CustomParticle component to prevent re-renders during scrolling
+const MemoizedParticle = React.memo(CustomParticle);
+
+// Create a separate component for the main content
+const PortfolioContent: React.FC = () => {
+  // Create references for each section
+  const aboutRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
+  const skillsRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
+  const experienceRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
+  const educationRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
+  const contactMeRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
+  const [activeSection, setActiveSection] = useState<string>("about");
+
+  // Now this will correctly get the value from the parent ThemeProvider
+  const { isDarkMode } = useContext(ThemeContext);
+
+  // Function to scroll to the specified section
+  const scrollToSection = (section: string) => {
+    const sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> } = {
+      about: aboutRef,
+      skills: skillsRef,
+      experience: experienceRef,
+      education: educationRef,
+      contactMe: contactMeRef,
+    };
+
+    sectionRefs[section]?.current?.scrollIntoView({ behavior: "smooth" });
+    setActiveSection(section);
+  };
+
+  // Detect which section is currently in view
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+
+      const sections = [
+        { id: "about", ref: aboutRef },
+        { id: "skills", ref: skillsRef },
+        { id: "experience", ref: experienceRef },
+        { id: "education", ref: educationRef },
+        { id: "contactMe", ref: contactMeRef },
+      ];
+
+      for (const section of sections) {
+        const element = section.ref.current;
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const height = element.offsetHeight;
+
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + height
+          ) {
+            setActiveSection(section.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Position the particle background with fixed position, behind all content
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="portfolio-container">
+      <ScrollProgressBar />
+      {/* The key prop ensures re-rendering when theme changes */}
+      <MemoizedParticle
+        isDarkMode={isDarkMode}
+        key={isDarkMode ? "dark" : "light"}
+      />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Render the navigation menu */}
+      <NavMenu onMenuClick={scrollToSection} activeSection={activeSection} />
+
+      {/* Section Components */}
+      <div className="full-width-container">
+        <div ref={aboutRef} className="section-container" id="about-section">
+          <Fade direction="up" triggerOnce>
+            <div className="row">
+              <div className="col-md-12">
+                <AboutMe contactMeRef={contactMeRef} />
+              </div>
+              {/* <div className="col-md-5">
+                <MeWithCode />
+              </div> */}
+            </div>
+          </Fade>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        <div ref={skillsRef} className="section-container" id="skills-section">
+          <Fade direction="up" triggerOnce>
+            <ProfessionalSummary />
+          </Fade>
+        </div>
+
+        <div
+          ref={experienceRef}
+          className="section-container"
+          id="experience-section"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <Fade direction="up" triggerOnce>
+            <Experience />
+            <SideProjects />
+          </Fade>
+        </div>
+
+        <div
+          ref={educationRef}
+          className="section-container"
+          id="education-section"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <Fade direction="up" triggerOnce>
+            <Education />
+          </Fade>
+        </div>
+
+        <div className="section-container" id="myskill-section">
+          <Fade direction="up" triggerOnce>
+            <MySkill />
+          </Fade>
+        </div>
+
+        <div
+          ref={contactMeRef}
+          className="section-container"
+          id="contact-section"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <Fade direction="up" triggerOnce>
+            <ContactMe />
+          </Fade>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+// Main component that wraps the content with ThemeProvider
+const SinglePageApp: React.FC = () => {
+  return (
+    <ThemeProvider>
+      <PortfolioContent />
+    </ThemeProvider>
+  );
+};
+
+export default SinglePageApp;

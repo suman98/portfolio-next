@@ -1,0 +1,64 @@
+{
+  "myProjects": {
+    "name": "Online Discussion Forum Project (Academic)",
+    "description": "Done as part for completing Graduate in Bachelors of Computer Science & Information Technology",
+    "scope": "Provides Text processing using various machine learning algorithms (Edit Distance, Naive Bayes Classifier & TF IDF).",
+    "tools": [
+      "Python3",
+      "Django Framework",
+      "Jinja 2",
+      "HTML/CSS/Javascript/jQuery",
+      "SqlLite"
+    ]
+  },
+  "myEducation": [
+    {
+      "degree": "Master of data science and computational intellectual",
+      "institution": "Coventry University",
+      "score": "Ongoing"
+    },
+    {
+      "degree": "Bachelors of Science in Computer Science & Information Technology (BSc. CSIT)",
+      "institution": "Tribhuvan University at Ambition college",
+      "score": "76.5%"
+    },
+    {
+      "degree": "10+2 in Science faculty",
+      "institution": "HSEB Board, Nepal at Southwestern State College",
+      "score": "68.4%"
+    },
+    {
+      "degree": "S.L.C",
+      "institution": "Nepal Government at Academy Boarding High School",
+      "score": "79.75%"
+    }
+  ],
+  "experience": [
+    "8+ years of IT industry experience Web/Mobile applications.",
+    "Engineered AI-driven solutions by integrating OpenRouter and OpenAI APIs into web applications",
+    "Successfully architected and implemented comprehensive CRM, ERP, and Billing systems for the hospitality sector",
+    "Developed and integrated TradingView charts API functionality within Laravel-based financial applications",
+    "Designed and maintained XML-based web services for efficient cross-platform data exchange",
+    "Delivered expert-level software support and resolved critical production database challenges",
+    "Conducted thorough requirements analysis and documentation for enterprise software development initiatives",
+    "Engineered robust REST APIs to support cross-platform mobile application ecosystems"
+  ],
+  "technologies": [
+    "PHP",
+    "Laravel",
+    "JavaScript/TypeScript",
+    "React.js",
+    "Vue.js",
+    "Angular.js",
+    "Ionic",
+    "React Native",
+    "Adonis Js",
+    "Python",
+    "Django",
+    "C/C++",
+    "REST API",
+    "GraphQL",
+    "SOAP",
+    "Cypress"
+  ]
+}
