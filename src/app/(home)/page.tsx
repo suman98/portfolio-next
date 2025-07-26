@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useRef, useEffect, useState, useContext } from "react";
 import NavMenu from "./components/NavBar";
 import AboutMe from "./components/About";
@@ -13,7 +12,7 @@ import CustomParticle from "@/@core/components/ParticleBackground";
 import { Fade } from "react-awesome-reveal";
 import ScrollProgressBar from "./components/ScrollProgressBar";
 import { ThemeProvider, ThemeContext } from "@/context/ThemeContext";
-import "./home.scss";
+
 
 // Memoized CustomParticle component to prevent re-renders during scrolling
 const MemoizedParticle = React.memo(CustomParticle);

@@ -297,30 +297,25 @@ const ProjectAndEducation: React.FC = () => {
         </Space>
       </Divider>
       
-      <Timeline 
+      <Timeline
         mode="left"
-        style={{ 
+        style={{
           marginTop: "24px",
           marginBottom: "24px",
           color: colors.text
         }}
-      >
-        {educations.map((edu: Education, index: number) => (
-          <Timeline.Item 
-            key={index}
-            color={colors.accent}
-          >
-            {renderProjectOrEducationItem(edu, 'education', index)}
-          </Timeline.Item>
-        ))}
-        
-        <Timeline.Item 
-          color={colors.primary}
-          dot={<ProjectOutlined style={{ fontSize: '16px', color: colors.primary }} />}
-        >
-          {renderProjectOrEducationItem(project, 'project', educations.length)}
-        </Timeline.Item>
-      </Timeline>
+        items={[
+          ...educations.map((edu: Education, index: number) => ({
+            color: colors.accent,
+            children: renderProjectOrEducationItem(edu, 'education', index),
+          })),
+          {
+            color: colors.primary,
+            dot: <ProjectOutlined style={{ fontSize: '16px', color: colors.primary }} />,
+            children: renderProjectOrEducationItem(project, 'project', educations.length),
+          }
+        ]}
+      />
     </div>
   );
 };

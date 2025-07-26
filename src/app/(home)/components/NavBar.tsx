@@ -22,7 +22,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ onMenuClick, activeSection }) => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
+  const [isPageLoaded, setIsPageLoaded] = useState(false)
   // Check screen size on mount and when window resizes
   useEffect(() => {
     const checkMobile = () => {
@@ -31,7 +31,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ onMenuClick, activeSection }) => {
     
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+    setIsPageLoaded(true)
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
@@ -65,6 +65,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ onMenuClick, activeSection }) => {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    ...(!isPageLoaded && { display: 'none' })
   };
 
   const menuItemStyle: React.CSSProperties = {
@@ -229,24 +230,20 @@ const NavMenu: React.FC<NavMenuProps> = ({ onMenuClick, activeSection }) => {
               height: '100%',
               borderRight: 'none'
             }}
-          >
-            {menuItems.map(item => (
-              <Menu.Item 
-                key={item.key} 
-                icon={item.icon} 
-                onClick={() => handleMenuClick(item.key)}
-                style={{
-                  margin: 0,
-                  padding: '16px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  borderBottom: '1px solid var(--border-color)'
-                }}
-              >
-                {item.label}
-              </Menu.Item>
-            ))}
-          </Menu>
+            items={menuItems.map(item => ({
+              key: item.key,
+              icon: item.icon,
+              label: item.label,
+              style: {
+                margin: 0,
+                padding: '16px',
+                display: 'flex',
+                alignItems: 'center',
+                borderBottom: '1px solid var(--border-color)'
+              },
+              onClick: () => handleMenuClick(item.key)
+            }))}
+          />
         </Drawer>
       </div>
     );
@@ -254,22 +251,19 @@ const NavMenu: React.FC<NavMenuProps> = ({ onMenuClick, activeSection }) => {
 
   // Desktop view (remains the same as previous implementation)
   return (
-    <div style={menuStyle}>
+    <div style={{...menuStyle}} >
       <Menu 
         mode="horizontal" 
         selectedKeys={[activeSection]}
         style={{ border: 'none', backgroundColor: 'transparent', width: '100%' }}
-      >
-        {menuItems.map(item => (
-          <Menu.Item 
-            key={item.key} 
-            style={menuItemStyle}
-            onClick={() => handleMenuClick(item.key)}
-          >
-            {item.icon} {item.label}
-          </Menu.Item>
-        ))}
-      </Menu>
+        items={menuItems.map(item => ({
+          key: item.key,
+          icon: item.icon,
+          label: item.label,
+          style: menuItemStyle,
+          onClick: () => handleMenuClick(item.key)
+        }))}
+      />
       
       <div 
         style={{ 

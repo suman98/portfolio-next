@@ -91,7 +91,6 @@ const ContactMe = () => {
 
         <Card
           className="contact-info-card"
-          bordered={false}
           style={{
             background: colors.contactInfoBackground,
             borderRadius: "8px",

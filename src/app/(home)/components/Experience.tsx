@@ -395,31 +395,26 @@ const ProfessionalExperience: React.FC = () => {
           </span>
         </Space>
       </Divider>
-      <Timeline 
+      <Timeline
         mode="left"
-        style={{ 
+        style={{
           marginTop: "24px",
           marginBottom: "24px",
           color: colors.text
         }}
-      >
-        {experiences.map((exp: Experience, index: number) => (
-          <Timeline.Item 
-            key={index}
-            color={colors.primary}
-            dot={index === 0 ? (
-              <CalendarOutlined 
-                style={{ 
-                  fontSize: '16px', 
-                  color: colors.primary 
-                }} 
-              />
-            ) : undefined}
-          >
-            <ExperienceItem {...exp} />
-          </Timeline.Item>
-        ))}
-      </Timeline>
+        items={experiences.map((exp: Experience, index: number) => ({
+          color: colors.primary,
+          dot: index === 0 ? (
+            <CalendarOutlined
+              style={{
+                fontSize: '16px',
+                color: colors.primary
+              }}
+            />
+          ) : undefined,
+          children: <ExperienceItem {...exp} />
+        }))}
+      />
     </div>
   );
 };

@@ -58,7 +58,6 @@ const AboutMe: React.FC<AboutMeProps> = ({ contactMeRef }) => {
         background: isDarkMode ? "#1f1f1f" : "#fff",
       }}
       className="hover-lift"
-      bodyStyle={{ padding: 0 }}
     >
       <div
         style={{
