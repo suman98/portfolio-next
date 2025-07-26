@@ -60,7 +60,6 @@ const ProjectAndEducation: React.FC = () => {
   const renderProjectOrEducationItem = (
     item: Project | Education,
     type: 'project' | 'education',
-    index: number
   ) => {
     const isProject = type === 'project';
     const itemColors = {
@@ -305,14 +304,14 @@ const ProjectAndEducation: React.FC = () => {
           color: colors.text
         }}
         items={[
-          ...educations.map((edu: Education, index: number) => ({
+          ...educations.map((edu: Education) => ({
             color: colors.accent,
-            children: renderProjectOrEducationItem(edu, 'education', index),
+            children: renderProjectOrEducationItem(edu, 'education'),
           })),
           {
             color: colors.primary,
             dot: <ProjectOutlined style={{ fontSize: '16px', color: colors.primary }} />,
-            children: renderProjectOrEducationItem(project, 'project', educations.length),
+            children: renderProjectOrEducationItem(project, 'project'),
           }
         ]}
       />

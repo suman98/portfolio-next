@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Image from 'next/image'
 import {
   Timeline,
   Card,
@@ -53,6 +54,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
   companyLogo
 }) => {
   const { isDarkMode } = useContext(ThemeContext);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const carouselRef = React.useRef<any>(null);
 
   // Dynamic color palette based on theme
@@ -285,7 +287,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
               >
                 {images.map((image, index) => (
                   <div key={index}>
-                    <img
+                    <Image
                       src={image}
                       alt={`${company} project ${index + 1}`}
                       style={{
@@ -305,7 +307,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
                           width: "80%",
                           content: (
                             <div style={{ textAlign: "center" }}>
-                              <img
+                              <Image
                                 src={image}
                                 alt={`${company} project ${index + 1}`}
                                 style={{
