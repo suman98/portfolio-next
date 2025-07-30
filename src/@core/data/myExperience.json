@@ -95,7 +95,7 @@
       "Worked with docker environment",
       "Perform Unit Testing"
     ],
-    "technologies": ["Vue", "Vuex", "Element UI", "Laravel Voyager", "Docker"],
+    "technologies": ["React", "Redux", "MUI", "Laravel Voyager", "Docker"],
     "images": ["/images/works/gm1.jpg", "/images/works/gm2.jpg"],
     "link": "https://nalamiz.gamenic.io/",
     "companyLogo": "/images/logos/gm.jpeg"
